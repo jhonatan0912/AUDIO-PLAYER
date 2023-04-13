@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.image {
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.audio-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: .5em;
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: .5em 0;
+}
+
+.audio-controls>button {
+  padding: .9em;
+  border-radius: 50%;
+  border: 2px solid gray;
+}
+
+.audio-controls>button:active {
+  scale: .9;
+  cursor: pointer;
+}
+
+.lyrics-container {
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.lyrics {
+  white-space: pre-wrap;
+  margin: 0 auto;
+  width: 50%;
+}
