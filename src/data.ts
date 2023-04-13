@@ -8,7 +8,7 @@ export const data: Song[] = [
     album: 'Honest',
     url: '/assets/honest.mp3',
     lyrics: `
-    The other one is, of course, outing yourself<br>
+    The other one is, of course, outing yourself
     I think, be the first to out yourself, I always think 
     Because you know, there's no end to the hypocrisy of the human heart 
     Woah-woah, woah 

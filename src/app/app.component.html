@@ -1,22 +1,26 @@
-<div class="container">
-  <article class="audio-cover">
+<div class="w-screen h-screen bg-red-500 flex flex-col-reverse">
+  <article class="bg-green-600 p-3">
     <div>
-      <img class="image" src="{{ songs[currentSongIndex].image }}" alt="{{ songs[currentSongIndex].title }}">
+      <img class="w-full max-w-xs mx-auto rounded-lg h-auto" src="{{ songs[currentSongIndex].image }}"
+        alt="{{ songs[currentSongIndex].title }}">
     </div>
-    <div class="audio-info">
+    <div class="">
       <h3>{{ songs[currentSongIndex].title }}</h3>
       <p>{{ songs[currentSongIndex].artist }} - {{ songs[currentSongIndex].album }}</p>
     </div>
-    <div class="audio-controls">
-      <button (click)="previousSong()"><i class="fa fa-step-backward"></i></button>
-      <button (click)="togglePlayPause()"><i class="fa"
+    <div class="flex justify-center gap-4">
+      <button class="p-3 border rounded-full w-12 h-12 active:scale-95 active:bg-zinc-500" (click)="previousSong()"><i
+          class="fa fa-step-backward"></i></button>
+      <button class="p-3 border rounded-full w-12 h-12 active:scale-95 active:bg-zinc-500"
+        (click)="togglePlayPause()"><i class="fa"
           [ngClass]="{'fa-pause': isPlaying, 'fa-play': !isPlaying}"></i></button>
-      <button (click)="nextSong()"><i class="fa fa-step-forward"></i></button>
+      <button class="p-3 border rounded-full w-12 h-12 active:scale-95 active:bg-zinc-500" (click)="nextSong()"><i
+          class="fa fa-step-forward"></i></button>
     </div>
   </article>
 
-  <section class="lyrics-container">
-    <h1>Lyrics</h1>
-    <p class="lyrics">{{ songs[currentSongIndex].lyrics}}</p>
+  <section class="bg-blue-600">
+    <h1 class="text-3xl font-bold text-center mt-3">Lyrics</h1>
+    <p class="whitespace-pre-wrap overflow-auto h-96 p-0">{{ songs[currentSongIndex].lyrics}}</p>
   </section>
 </div>
