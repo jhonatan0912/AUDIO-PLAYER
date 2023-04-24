@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Song } from './models/Song.interface';
 import { data } from 'src/data';
 
 @Component({
@@ -7,44 +8,28 @@ import { data } from 'src/data';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  audioPlayer: any;
-  songs: any[] = data
 
-  currentSongIndex: number = 0;
-  isPlaying: boolean = false;
+  public currentSong: any;
+  public isPlaying: boolean = false;
+  public audio: HTMLAudioElement = new Audio();
+
+  public songs: Song[] = data;
 
   constructor() {
-    this.audioPlayer = new Audio();
-    this.audioPlayer.src = this.songs[this.currentSongIndex].url;
   }
 
-  playSong() {
-    this.audioPlayer.play();
+  play(song: any) {
+    if (this.currentSong !== song) {
+      this.currentSong = song;
+      this.audio.src = song.url;
+      this.audio.load();
+    }
+    this.audio.play();
     this.isPlaying = true;
   }
 
-  pauseSong() {
-    this.audioPlayer.pause();
+  pause() {
+    this.audio.pause();
     this.isPlaying = false;
-  }
-
-  nextSong() {
-    this.currentSongIndex = (this.currentSongIndex + 1) % this.songs.length;
-    this.audioPlayer.src = this.songs[this.currentSongIndex].url;
-    this.playSong();
-  }
-
-  previousSong() {
-    this.currentSongIndex = (this.currentSongIndex - 1) % this.songs.length;
-    this.audioPlayer.src = this.songs[this.currentSongIndex].url;
-    this.playSong();
-  }
-
-  togglePlayPause() {
-    if (this.isPlaying) {
-      this.pauseSong();
-    } else {
-      this.playSong();
-    }
   }
 }
