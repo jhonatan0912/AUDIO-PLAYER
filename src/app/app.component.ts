@@ -15,9 +15,6 @@ export class AppComponent {
 
   public songs: Song[] = data;
 
-  constructor() {
-  }
-
   play(song: any) {
     if (this.currentSong !== song) {
       this.currentSong = song;
